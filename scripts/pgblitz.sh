@@ -42,7 +42,8 @@ while read p; do
   --exclude="**deluge**" --exclude="**transmission**" \
   --exclude="**jdownloader**" --exclude="**makemkv**" \
   --exclude="**handbrake**" --exclude="**bazarr**" \
-  --exclude="**ignore**"  --exclude="**inProgress**"
+  --exclude="**ignore**"  --exclude="**inProgress**" \
+  --user-agent "PizzaHut"
 
   chown -R 1000:1000 "{{hdpath}}/move"
   chmod -R 775 "{{hdpath}}/move"
@@ -66,7 +67,8 @@ while read p; do
   --exclude="**deluge**" --exclude="**transmission**" \
   --exclude="**jdownloader**" --exclude="**makemkv**" \
   --exclude="**handbrake**" --exclude="**bazarr**" \
-  --exclude="**ignore**"  --exclude="**inProgress**"
+  --exclude="**ignore**"  --exclude="**inProgress**" \
+  --user-agent "PizzaHut"
 
   echo "Cycle $cyclecount - Sleeping for 30 Seconds" >> /var/plexguide/logs/pgblitz.log
   cat /var/plexguide/logs/pgblitz.log | tail -200 > /var/plexguide/logs/pgblitz.log

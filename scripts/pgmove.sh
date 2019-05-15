@@ -44,7 +44,8 @@ rclone moveto "{{hdpath}}/downloads/" "{{hdpath}}/move/" \
 --exclude="**deluge**" --exclude="**transmission**" \
 --exclude="**jdownloader**" --exclude="**makemkv**" \
 --exclude="**handbrake**" --exclude="**bazarr**" \
---exclude="**ignore**"  --exclude="**inProgress**"
+--exclude="**ignore**"  --exclude="**inProgress**" \
+--user-agent "PizzaHut"
 
 chown -R 1000:1000 "{{hdpath}}/move"
 chmod -R 775 "{{hdpath}}/move"
@@ -67,7 +68,8 @@ rclone move "{{hdpath}}/move/" "{{type}}:/" \
 --exclude="**deluge**" --exclude="**transmission**" \
 --exclude="**jdownloader**" --exclude="**makemkv**" \
 --exclude="**handbrake**" --exclude="**bazarr**" \
---exclude="**ignore**"  --exclude="**inProgress**"
+--exclude="**ignore**"  --exclude="**inProgress**" \
+--user-agent "PizzaHut"
 
 sleep 5
 

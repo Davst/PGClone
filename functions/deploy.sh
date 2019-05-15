@@ -117,38 +117,38 @@ fi
 ########################################################################################
 gdrivemod ()
 {
-  initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP plexguide | head -n1)
+  initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP plexguide | head -n1)
 
   if [[ "$initial" != "plexguide" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf gdrive:/plexguide
-    initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP plexguide | head -n1)
+    initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP plexguide | head -n1)
   fi
 
   if [[ "$initial" == "plexguide" ]]; then echo "GDRIVE :  Passed" >> /opt/var/.drivelog; else echo "GDRIVE :  Failed" >> /opt/var/.drivelog; fi
 }
 tdrivemod ()
 {
-  initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP plexguide | head -n1)
+  initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP plexguide | head -n1)
 
   if [[ "tinitial" != "plexguide" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf gdrive:/plexguide
-    initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP plexguide | head -n1)
+    initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP plexguide | head -n1)
   fi
 
   if [[ "$initial" == "plexguide" ]]; then echo "TDRIVE :  Passed" >> /opt/var/.drivelog; else echo "TDRIVE :  Failed" >> /opt/var/.drivelog; fi
 }
 gcryptmod ()
 {
-  c1initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP encrypt | head -n1)
-  c2initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf gcrypt: | grep -oP plexguide | head -n1)
+  c1initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP encrypt | head -n1)
+  c2initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf gcrypt: | grep -oP plexguide | head -n1)
 
   if [[ "$c1initial" != "encrypt" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf gdrive:/encrypt
-    c1initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP encrypt | head -n1)
+    c1initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf gdrive: | grep -oP encrypt | head -n1)
   fi
   if [[ "$c2initial" != "plexguide" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf gcrypt:/plexguide
-    c2initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf gcrypt: | grep -oP plexguide | head -n1)
+    c2initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf gcrypt: | grep -oP plexguide | head -n1)
   fi
 
   if [[ "$c1initial" == "encrypt" ]]; then echo "GCRYPT1:  Passed" >> /opt/var/.drivelog; else echo "GCRYPT1:  Failed" >> /opt/var/.drivelog; fi
@@ -156,16 +156,16 @@ gcryptmod ()
 }
 tcryptmod ()
 {
-  c1initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP encrypt | head -n1)
-  c2initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf tcrypt: | grep -oP plexguide | head -n1)
+  c1initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP encrypt | head -n1)
+  c2initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf tcrypt: | grep -oP plexguide | head -n1)
 
   if [[ "$c1initial" != "encrypt" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf tdrive:/encrypt
-    c1initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP encrypt | head -n1)
+    c1initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf tdrive: | grep -oP encrypt | head -n1)
   fi
   if [[ "$c2initial" != "plexguide" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf tcrypt:/plexguide
-    c2initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf tcrypt: | grep -oP plexguide | head -n1)
+    c2initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf tcrypt: | grep -oP plexguide | head -n1)
   fi
 
   if [[ "$c1initial" == "encrypt" ]]; then echo "TCRYPT1:  Passed" >> /opt/var/.drivelog; else echo "TCRYPT1:  Failed" >> /opt/var/.drivelog; fi
@@ -173,22 +173,22 @@ tcryptmod ()
 }
 gdsamod ()
 {
-  initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf GDSA01: | grep -oP plexguide | head -n1)
+  initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf GDSA01: | grep -oP plexguide | head -n1)
 
   if [[ "$initial" != "plexguide" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf GDSA01:/plexguide
-    initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf GDSA01: | grep -oP plexguide | head -n1)
+    initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf GDSA01: | grep -oP plexguide | head -n1)
   fi
 
   if [[ "$initial" == "plexguide" ]]; then echo "GDSA01 :  Passed" >> /opt/var/.drivelog; else echo "GDSA01 :  Failed" >> /opt/var/.drivelog; fi
 }
 gdsacryptmod ()
 {
-  initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf GDSA01C: | grep -oP encrypt | head -n1)
+  initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf GDSA01C: | grep -oP encrypt | head -n1)
 
   if [[ "$initial" != "plexguide" ]]; then
     rclone mkdir --config /opt/appdata/plexguide/rclone.conf GDSA01C:/plexguide
-    initial=$(rclone lsd --config /opt/appdata/plexguide/rclone.conf GDSA01C: | grep -oP plexguide | head -n1)
+    initial=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf GDSA01C: | grep -oP plexguide | head -n1)
   fi
 
   if [[ "$initial" == "plexguide" ]]; then echo "GDSA01C:  Passed" >> /opt/var/.drivelog; else echo "GDSA01C:  Failed" >> /opt/var/.drivelog; fi

@@ -58,14 +58,14 @@ elif [[ "$typed" == "N" || "$typed" == "n" ]]; then mountsmenu
     statusmount
   fi
 
-  rclone config delete $type --config /opt/appdata/plexguide/rclone.conf
+  rclone config delete $type --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf
 
   encheck=$(cat /var/plexguide/pgclone.transport)
   if [[ "$encheck" == "eblitz" || "$encheck" == "emove" ]]; then
     if [ "$type" == "gdrive" ]; then
-    rclone config delete gcrypt --config /opt/appdata/plexguide/rclone.conf; fi
+    rclone config delete gcrypt --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf; fi
     if [ "$type" == "tdrive" ]; then
-    rclone config delete tcrypt --config /opt/appdata/plexguide/rclone.conf; fi
+    rclone config delete tcrypt --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf; fi
   fi
 
 tee <<-EOF
@@ -788,7 +788,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
   sleep 1
-  rclone mkdir --config /opt/appdata/plexguide/test.conf $type:/plexguide
+  rclone mkdir --user-agent "PizzaHut" --config /opt/appdata/plexguide/test.conf $type:/plexguide
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -796,7 +796,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
-  rcheck=$(rclone lsd --config /opt/appdata/plexguide/test.conf $type: | grep -oP plexguide | head -n1)
+  rcheck=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/test.conf $type: | grep -oP plexguide | head -n1)
 
   if [ "$rcheck" != "plexguide" ];then
 tee <<-EOF

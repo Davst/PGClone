@@ -117,7 +117,7 @@ readrcloneconfig () {
 }
 
 rcloneconfig () {
-  rclone config --config /opt/appdata/plexguide/rclone.conf
+  rclone config --user-agent "PizzaHut" --config /opt/appdata/plexguide/rclone.conf
 }
 
 keysprocessed () {

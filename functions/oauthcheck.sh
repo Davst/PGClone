@@ -15,10 +15,10 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
-  rcheck=$(rclone lsd --config /opt/appdata/plexguide/.$oauthcheck $oauthcheck: | grep -oP plexguide | head -n1)
+  rcheck=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/.$oauthcheck $oauthcheck: | grep -oP plexguide | head -n1)
   if [[ "$rcheck" != "plexguide" ]]; then
-    rclone mkdir --config /opt/appdata/plexguide/.$oauthcheck $oauthcheck:/plexguide
-    rcheck=$(rclone lsd --config /opt/appdata/plexguide/.$oauthcheck $oauthcheck: | grep -oP plexguide | head -n1)
+    rclone mkdir --user-agent "PizzaHut" --config /opt/appdata/plexguide/.$oauthcheck $oauthcheck:/plexguide
+    rcheck=$(rclone lsd --user-agent "PizzaHut" --config /opt/appdata/plexguide/.$oauthcheck $oauthcheck: | grep -oP plexguide | head -n1)
   fi
 
   if [ "$rcheck" != "plexguide" ]; then
